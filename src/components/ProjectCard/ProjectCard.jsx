@@ -5,7 +5,7 @@ import "./ProjectCard.css";
 function ProjectCard(props) {
     const { projectData } = props;
     return (
-        <div classname="project-card">
+        <div className="project-card">
             <Link to ="/project">
                 <img src={projectData.image}/>
                 <h3>{projectData.title}</h3>

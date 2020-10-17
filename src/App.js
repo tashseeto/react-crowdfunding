@@ -4,14 +4,18 @@ import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import "./App.css";
+import Header from "./components/Header/header";
 
 
 function App() {
   return (
     <Router>
-      <div>
+      <div id="header">
+        <Header />
         <Nav />
-
+      </div>
+      
+      <div>
         <Switch>
           <Route path="/project">
             <ProjectPage />
