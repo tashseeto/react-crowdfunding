@@ -5,7 +5,8 @@ import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import "./App.css";
 import Header from "./components/Header/header";
-
+import LoginPage from "./pages/LoginPage";
+import NewProjectPage from "./pages/NewProjectpage";
 
 function App() {
   return (
@@ -17,12 +18,24 @@ function App() {
       
       <div>
         <Switch>
+
           <Route path="/project/:id">
             <ProjectPage />
           </Route>
+
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+
+          <Route path="/newproject">
+            <NewProjectPage />
+          </Route>
+
+
           <Route path="/">
             <HomePage />
           </Route>
+          
         </Switch>
       </div>
     </Router>
