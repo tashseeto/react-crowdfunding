@@ -19,11 +19,11 @@ function App() {
       <div>
         <Switch>
 
-          <Route path="/project/:id">
+        <Route path="/project/:id">
             <ProjectPage />
           </Route>
 
-          <Route path="/login">
+        <Route path="/login">
             <LoginPage />
           </Route>
 
@@ -31,11 +31,10 @@ function App() {
             <NewProjectPage />
           </Route>
 
-
           <Route path="/">
             <HomePage />
           </Route>
-          
+
         </Switch>
       </div>
     </Router>
