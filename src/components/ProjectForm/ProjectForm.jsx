@@ -14,6 +14,7 @@ function ProjectForm () {
     const history = useHistory();
 
     const handleChange = (e) => {
+        e.preventDefault()
         const { id, value } = e.target;
         setProject((prevProject) => ({
             ...prevProject,
@@ -22,14 +23,16 @@ function ProjectForm () {
     };
 
     const postData = async () => {
+        const token = window.localStorage.getItem("token")
+
         const response = await fetch(
         `${process.env.REACT_APP_API_URL}projects/`, {
         method: "post",
         headers: {
             "Content-Type": "application/json",
-            'Authorization': `Token ${token}`,
+            'Authorization': `Token ${token}`
         },
-        body: JSON.stringify(),
+        body: JSON.stringify(project),
         }
         );
         return response.json();
@@ -102,7 +105,7 @@ function ProjectForm () {
         Submit
         </button>
         </form>
-    );
-}
+    )
+};
 
 export default ProjectForm;
