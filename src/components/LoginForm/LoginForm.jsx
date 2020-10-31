@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import "./LoginForm.css"
 
 
 function LoginForm () {
@@ -7,6 +8,8 @@ function LoginForm () {
         username: "",
         password: "",
     });
+
+    const [errorMessage, setErrorMessage] = useState(null)
 
     const history = useHistory();
 
@@ -34,37 +37,54 @@ function LoginForm () {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (credentials.username && credentials.password) {
-        postData().then((response) => {
-        window.localStorage.setItem("token", response.token);
-        history.push("/");
+            postData().then((response) => {
+            window.localStorage.setItem("token", response.token);
+            window.localStorage.setItem("username", credentials.username)
+
+            if (response.token !=null) {
+                //handleLoginClick
+                history.goBack();
+                // history.push("/");
+            }
+            else if (response.non_field_errors) {
+                setErrorMessage(response.non_field_errors)
+                setCredentials({password: ""})
+            }
         });
         }
     };
 
     return (
+        <div className="form-wrap">
+            <h1>Login</h1>
         <form>
-        <div>
-        <label htmlFor="username">Username:</label>
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter username"
-            onChange={handleChange}
-        />
-        </div>
-        <div>
-        <label htmlFor="password">Password:</label>
-        <input 
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-        />
-        </div>
-        <button type="submit" onClick={handleSubmit}>
-        Login
-        </button>
+            <div className="form-group">
+                <label htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter username"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input 
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    onChange={handleChange}
+                    value={credentials.password}
+                />
+            </div>
+            <button type="submit" onClick={handleSubmit}>
+            Login
+            </button>
         </form>
+
+        {errorMessage != null ? <p className="error">{errorMessage}</p> : null}
+
+        </div>
     );
 }
 

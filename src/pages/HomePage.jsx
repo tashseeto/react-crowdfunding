@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { allProjects } from "../data";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 
-function HomePage() {
+function HomePage( {convertDateTime} ) {
     const [projectList, setProjectList] = useState([]);
 
     useEffect(() => {
@@ -18,10 +18,16 @@ function HomePage() {
     return (
     <div id="project-list">
         {projectList.map((projectData, key) => {
-            return <ProjectCard key={key} projectData={projectData} />;
+            return (
+            <ProjectCard
+            key={key}
+            projectData={projectData}
+            convertDateTime={convertDateTime}
+            />
+            )
         })}
     </div>
-    );
+    )
 }
 
 export default HomePage;

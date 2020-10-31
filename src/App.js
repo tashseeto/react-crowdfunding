@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import NewProjectPage from "./pages/NewProjectpage";
 
 function App() {
+
   return (
     <Router>
       <div id="header">
