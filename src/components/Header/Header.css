@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-    border: purple 2px solid;
+    /* border: purple 2px solid; */
 }
 
 .logo {
-    height: 100%;
-    width: 50vw;
+    height: 95%;
+    width: 48vw;
 }

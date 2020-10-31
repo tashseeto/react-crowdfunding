@@ -55,12 +55,12 @@ function ProjectForm () {
 
 
     const handleSubmit = (e) => {
-        console.log(projectData.title)
-        console.log(projectData.description)
-        console.log(projectData.goal)
-        console.log(projectData.image)
-        console.log(projectData.date_created)
-        console.log(projectData.date_end)
+        // console.log(projectData.title)
+        // console.log(projectData.description)
+        // console.log(projectData.goal)
+        // console.log(projectData.image)
+        // console.log(projectData.date_created)
+        // console.log(projectData.date_end)
         e.preventDefault();
         if (
             projectData.title &&

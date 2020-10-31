@@ -10,7 +10,6 @@ function LoginControl () {
     
     function handleLoginClick() {
         history.push("/login/")
-
     }
   
     function handleLogoutClick() {
@@ -40,8 +39,6 @@ function LoginControl () {
         </div>
       );
     }
-export default LoginControl
-
 
 function LoginButton(props) {
     return (
@@ -58,3 +55,5 @@ function LogoutButton(props) {
         </a>
     );
   }
+
+  export default LoginControl
