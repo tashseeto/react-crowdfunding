@@ -28,8 +28,8 @@ function Nav() {
                 <div className="nav">
                         {!isLoggedIn && <Link to="/register/"><div className="nav-link">Register</div></Link>}
                         {isLoggedIn && <Link to="/projects/"><div className="nav-link">Projects</div></Link>}
-                        {isLoggedIn && <Link to="/newprojectpage/"><div className="nav-link">Create A Project</div></Link>}
-                        {isLoggedIn && <Link to={profile}><div className="nav-link">Profile</div></Link>}
+                        {isLoggedIn && <Link to="/newproject/"><div className="nav-link">Create A Project</div></Link>}
+                        {/* {isLoggedIn && <Link to={profile}><div className="nav-link">Profile</div></Link>} */}
                         <div className="nav-link"><LoginControl /></div>
                 </div>
             </nav>

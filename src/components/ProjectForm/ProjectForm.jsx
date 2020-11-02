@@ -37,13 +37,13 @@ function ProjectForm () {
     }, [newProjectId]);
 
 
-    const postData = async () => {
+    const putData = async () => {
         let token = window.localStorage.getItem("token");
 
         // POST request using fetch with async
         const response = await fetch(
         `${process.env.REACT_APP_API_URL}projects/`, {
-        method: "post",
+        method: "put",
         headers: {
             "Content-Type": "application/json",
             'Authorization': `Token ${token}`
@@ -70,7 +70,7 @@ function ProjectForm () {
             projectData.date_created &&
             projectData.date_end
         ) {
-            postData().then((response) => {
+            putData().then((response) => {
                 console.log(response)
                 setErrorMessage(response[Object.keys(response) [0]])
                 setNewProjectId(response.id)
